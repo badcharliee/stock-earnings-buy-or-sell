@@ -47,9 +47,11 @@ Earnings Reports are either released after market close, before market open, or 
 
 
 
-PHOTO <create-database>
-PHOTO <create-table-earnings>
-PHOTO <create-table-stock-prices>
+![create database screenshot](https://github.com/badcharliee/stock-earnings-buy-or-sell/blob/main/resources/images/create-database.png "")
+	
+![create table earnings screenshot](https://github.com/badcharliee/stock-earnings-buy-or-sell/blob/main/resources/images/create-table-earnings.png "")
+	
+![create table stock prices screenshot](https://github.com/badcharliee/stock-earnings-buy-or-sell/blob/main/resources/images/create-table-stock-prices.png "")
 
 
 
@@ -66,36 +68,28 @@ Repeat steps 2-8 for ‘stock_prices_latest.csv’. Save the new file as ‘MSFT
  
 9. Load both newly created .csv files into the MySQL database.
 
-
-PHOTO <load-infile-earnings>
-PHOTO <load-infile-stocks>	
+	
+![load in file earnings screenshot](https://github.com/badcharliee/stock-earnings-buy-or-sell/blob/main/resources/images/load-infile-earnings.png "")
+	
+![load in file stocks screenshot](https://github.com/badcharliee/stock-earnings-buy-or-sell/blob/main/resources/images/load-infile-stocks.png "")
 	
 
 10. Create stored procedures 
+	
 
-
-
-PHOTO <create-procedures>	
-
-
-
+![create procedures screenshot](https://github.com/badcharliee/stock-earnings-buy-or-sell/blob/main/resources/images/create-procedures.png "")
 
 
 11. Call stored procedures for stock symbol ‘MSFT’. Calling these procedures creates the tables Volatility, EarningsStatus, TwoWeekTrends, and BuyOrSell (it also deletes them if they previously exist). These tables will be populated with nominal values for each earnings report based on stock data before that earnings report and stock data after the previous earnings report. [ EarningsReport1 **StockData2 EarningsReport2** ] For more information on how these nominal fields are aggregated, see Fields section.
 
 
-
-
-
-PHOTO <call-procedures>
-
-
+![call procedures screenshot](https://github.com/badcharliee/stock-earnings-buy-or-sell/blob/main/resources/images/call-procedures.png "")
 
 
 12. Using a GUI SQL Editor, run the query to get processed, nominal fields. Using a GUI SQL Editor rather than a command line SQL interface for this step will make it easier to save the query results to a .csv file, which will be needed in the next step.
 
 
-PHOTO <main-query>
+![main query screenshot](https://github.com/badcharliee/stock-earnings-buy-or-sell/blob/main/resources/images/main-query.png "")
 	
 	
 13. Export the results of the query as a .csv file. This file will be used as the training set.
