@@ -105,34 +105,30 @@ PHOTO <main-query>
 
 The data is now processed! It is time to run the Naive Bayes Classifier.
 
-Step 2: Naive Bayes Classifier
+#### *Step 2: Naive Bayes Classifier* ####
 
-1. Select the Classify tab in the top left corner.
-2. In Classifier, click Choose.
+1. Select the **Classify** tab in the top left corner.
+2. In **Classifier**, click **Choose**.
 3. Select NaiveBayes.
-4. In Test options, click the radio button for Cross-validation. Set Folds to some value greater than 0.
-5. Click Start.
+4. In **Test options**, click the radio button for Cross-validation. Set Folds to some value greater than 0.
+5. Click **Start**.
 
-Step 3: Model Analysis
+#### *Step 3: Model Analysis* ####
 
 For the Microsoft (MSFT) stock symbol’s cleaned dataset, there were a total of 21 tuples that each correspond to nominal data for an Earnings Report. 21 tuples is not a very large number for a training set. With this in mind, cross-validation is used to rotate the test set k times (k folds). This allows each k group to be withheld from training the model, and used as the test set. 
 
 Metrics based on the aggregate confusion matrix for MSFT:
 
-Sensitivity: 33% — This metric describes where the tuple was classified by the model as Sell, and was correctly classified. 
+**Sensitivity: 33%** — This metric describes where the tuple was classified by the model as Sell, and was correctly classified. 
 
-Specificity: 86.6% — This metric describes where the tuple was classified by the model as Buy, and was correctly classified.
+**Specificity: 86.6%** — This metric describes where the tuple was classified by the model as Buy, and was correctly classified.
 
-Accuracy: 71.4% — This metric describes how often the tuples were correctly classified.
+**Accuracy: 71.4%** — This metric describes how often the tuples were correctly classified.
 
-Misclassification rate: 28.6% — This metric describes how often the tuples were incorrectly classified.
+**Misclassification rate: 28.6%** — This metric describes how often the tuples were incorrectly classified.
 
 	Based on the sensitivity and specificity metrics, it appears that the Model is much better at predicting when to Buy after an Earnings Report than it is at predicting when to Sell. The dataset is very small, and there are only six instances in the training set where the class variable is Sell. This is a class imbalance problem, and may be solved by finding more usable data for MSFT. Another alternative is to expand the training set to not only include MSFT tuples, but also include tuples for symbols that have a high covariance with MSFT.
 	For the training set, the class is labeled Buy if the closing price the day after the Earnings Report is greater than the price at close the day before the Earnings Report. Otherwise, the class is labeled as Sell. This model is based on the assumption that the price at which the stock is Bought on the day after the Earnings Report is equal to the price at which the stock closed on the previous day. In practice, this is rarely the case. Stock prices fluctuate in after hours and pre-market hours. In order to better account for this, it may be better to compare the open price on the day after the Earnings Report to the closing price for the same day. Alternatively, it may also be beneficial to compare the open price for the day after the Earnings Report to the Closing Price some days later.
-
-References
-
-https://www.kaggle.com/tsaustin/us-historical-stock-prices-with-earnings-data?select=stocks_latest
 
 
 
